@@ -6,7 +6,7 @@ const myworkPage = () => {
     <div>
     <div>
       <div className="container mx-auto flex justify-center">
-        <div className="max-w max-h rounded overflow-hidden shadow-lg bg-[#111633] ">
+        <div className="max-w max-h rounded overflow-hidden shadow-lg bg-[#111633] " style={{backgroundColor:"#111633"}}>
           {/* <img className="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains"> */}
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">My Work</div>

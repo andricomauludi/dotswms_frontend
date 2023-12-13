@@ -164,7 +164,7 @@ export default function DashboardLayout({
             </ul>
           </nav> */}
 
-        <main className="dark text-foreground">{children}</main>
+        <main className="dark text-foreground" style={{marginTop:"30px"}}>{children}</main>
       </div>
     </>
   );
