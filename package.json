@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
     "axios": "^1.6.2",
     "bulma": "^0.9.4",
     "cookie": "^0.6.0",
+    "framer-motion": "^10.16.16",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "next": "^14.0.3",

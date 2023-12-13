@@ -1,9 +1,22 @@
 "use client";
 
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+} from "@nextui-org/react";
 import axios, { AxiosError } from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Buttonlogout from "../components/dashboard/buttonlogout";
+import ProfilePage from "./profile/page";
 
 //layout digunakan untuk memproteksi semua page didalam dashboard
 
@@ -38,43 +51,120 @@ export default function DashboardLayout({
   }
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-[#070C27]">
-        <nav className="fixed left-60 top-0 right-0 left-20 top-0 bg-[#101632] py-5 px-5">
+      <div
+        className="min-h-screen flex flex-col bg-[]"
+        style={{ backgroundColor: "#070C27" }}
+      >
+        <Navbar shouldHideOnScroll style={{ backgroundColor: "#101632" }}>
+          <NavbarBrand>
+            <p className="font-bold text-inherit text-white">DOTS WMS</p>
+          </NavbarBrand>
+          <NavbarContent justify="end">
+            <NavbarItem>
+              <Dropdown backdrop="blur">
+                <DropdownTrigger>
+                  <Button color="primary" variant="bordered">
+                    Settings
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu variant="faded" aria-label="Static Actions">
+                  <DropdownItem key="new">New file</DropdownItem>
+                  <DropdownItem key="copy">Copy link</DropdownItem>
+                  <DropdownItem
+                    key="delete"
+                    className="text-danger"
+                    color="danger"
+                  >
+                    <Buttonlogout />
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </NavbarItem>
+            <NavbarItem>
+              <ProfilePage />
+            </NavbarItem>
+          </NavbarContent>
+        </Navbar>
+        {/* <nav
+          className="fixed left-60 top-0 right-0 left-20 top-0 bg-[#101632] py-5 px-5"
+          style={{ backgroundColor: "#101632" }}
+        >
           <div className="flex">
             <h1 className="text-white">Navbar</h1>
-            <ul className="flex ml-5">
+            
+             <ul className="flex ml-5">
               <Link href="/dashboard">
                 <li className="mr-6 text-blue-300 cursor-pointer">Home</li>
               </Link>
-              <Link href="/dashboard/about">
-                <li className="mr-6 text-blue-300 cursor-pointer">About</li>
+              <Link href="/dashboard/mywork">
+                <li className="mr-6 text-blue-300 cursor-pointer">My Work</li>
               </Link>
-              <Link href="/dashboard/profile">
-                <li className="mr-6 text-blue-300 cursor-pointer">Profile</li>
+              <Link href="/dashboard/workspace">
+                <li className="mr-6 text-blue-300 cursor-pointer">Workspace</li>
               </Link>
             </ul>
           </div>
-        </nav>
-        <div className="flex flex-col md:flex-row flex-1 bg-[#070C27]">
-          <aside className="w-full md:w-60 outline-slate-600">           
-            <nav className="fixed left-0 top-0 z-10 h-screen w-60 bg-[#171D37] border-r-4 border-slate-800">
-              <ul className="m-6">
-                <h3 className="text-white">DOTS-WMS</h3>
-                
-                <Link href="/dashboard">
-                  <li  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}>Home</li>
-                </Link>
-                <Link href="/dashboard/about">
-                  <li  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}>About</li>
-                </Link>
-                <Link href="/dashboard/profile">
-                  <li  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}>Profile</li>
-                </Link>
-              </ul>
-            </nav>
-          </aside>
-          <main className="flex-1 bg-[#070C27] mt-20 text-white">{children}</main>
-        </div>
+        </nav> */}
+        <aside>
+          <nav
+            className="fixed h-screen w-20 border-r-4 border-slate-800"
+            style={{
+              backgroundColor: "#171D37",
+              borderColor: "#FFFFFF",
+            }}
+          >
+            <ul className="m-6">
+              <Link href="/dashboard">
+                <li
+                  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}
+                >
+                  Home
+                </li>
+              </Link>
+              <Link href="/dashboard/mywork">
+                <li
+                  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}
+                >
+                  My Work
+                </li>
+              </Link>
+              <Link href="/dashboard/workspace">
+                <li
+                  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}
+                >
+                  Workspace
+                </li>
+              </Link>
+            </ul>
+          </nav>
+        </aside>
+        {/* <nav className="fixed left-0 top-0 z-10 h-screen w-60 bg-[#171D37] border-r-4 border-slate-800" style={{marginTop:"60px",backgroundColor:"#171D37"}}>
+            <ul className="m-6">
+              <Link href="/dashboard">
+                <li
+                  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}
+                >
+                  Home
+                </li>
+              </Link>
+              <Link href="/dashboard/mywork">
+                <li
+                  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}
+                >
+                  My Work
+                </li>
+              </Link>
+              <Link href="/dashboard/workspace">
+                <li
+                  className={`flex p-2 text-white hover:bg-[#232F69] cursor-pointer`}
+                >
+                  Workspace
+                </li>
+              </Link>
+            </ul>
+          </nav> */}
+
+        <main className="dark text-foreground">{children}</main>
       </div>
     </>
   );

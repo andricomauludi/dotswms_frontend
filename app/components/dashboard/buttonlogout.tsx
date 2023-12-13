@@ -32,7 +32,7 @@ const Buttonlogout= () => {
   return (
     <>
       <button onClick={handleLogout}>
-        LOGOUT
+        Sign Out
       </button>
     </>
   );
