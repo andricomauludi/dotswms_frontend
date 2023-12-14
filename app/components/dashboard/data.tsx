@@ -1,21 +1,21 @@
 import React from "react";
 const columns = [
-  {name: "ITEM", uid: "item"},
-  {name: "POSTING SCHEDULE", uid: "postingschedule"},
-  {name: "POSTING TIME", uid: "postingtime"},
-  {name: "LEAD", uid: "lead"},
-  {name: "CONTENT CATEGORY", uid: "contentcategory"},
-  {name: "CONTENT TEXT LINK", uid: "contenttextlink"},
-  {name: "CONTENT TEXT", uid: "contenttext"},
-  {name: "CONTENT POSTING", uid: "contentposting"},
-  {name: "POSTING CAPTION", uid: "postingcaption"},
-  {name: "INSTAGRAM POSTING STATUS", uid: "instagrampostingstatus"},
-  {name: "TIKTOK POSTING STATUS", uid: "tiktokpostingstatus"},
-  {name: "LAST UPDATED", uid: "lastupdated"},
+  { name: "ITEM", uid: "item" },
+  { name: "POSTING SCHEDULE", uid: "postingschedule" },
+  { name: "POSTING TIME", uid: "postingtime" },
+  { name: "LEAD", uid: "lead" },
+  { name: "CONTENT CATEGORY", uid: "contentcategory" },
+  { name: "CONTENT TEXT LINK", uid: "contenttextlink" },
+  { name: "CONTENT TEXT", uid: "contenttext" },
+  { name: "CONTENT POSTING", uid: "contentposting" },
+  { name: "POSTING CAPTION", uid: "postingcaption" },
+  { name: "INSTAGRAM POSTING STATUS", uid: "instagrampostingstatus" },
+  { name: "TIKTOK POSTING STATUS", uid: "tiktokpostingstatus" },
+  { name: "LAST UPDATED", uid: "lastupdated" },
   // {name: "NAME", uid: "name"},
-  {name: "ROLE", uid: "role"},
-  {name: "STATUS", uid: "status"},
-  {name: "ACTIONS", uid: "actions"},
+  { name: "ROLE", uid: "role" },
+  { name: "STATUS", uid: "status" },
+  { name: "ACTIONS", uid: "actions" },
 ];
 
 const users = [
@@ -33,15 +33,12 @@ const users = [
     postingtime: "19:00",
     contentcategory: "reels",
     contenttextlink: "www.google.com",
-    contenttext:"TEXT FILE",
-    contentposting:"file yang akan diposting",
-    postingcaption:"Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-    instagrampostingstatus:"posted",
-    tiktokpostingstatus:"posted",    
-    lastupdated:"Gilbran"
-
-    
-
+    contenttext: "TEXT FILE",
+    contentposting: "file yang akan diposting",
+    postingcaption: "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+    instagrampostingstatus: "posted",
+    tiktokpostingstatus: "posted",
+    lastupdated: "Gilbran",
   },
   {
     id: 2,
@@ -57,17 +54,12 @@ const users = [
     postingtime: "19:00",
     contentcategory: "tiktok",
     contenttextlink: "www.google.com",
-    contenttext:"TEXT FILE",
-    contentposting:"file yang akan diposting",
-    postingcaption:"Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-    instagrampostingstatus:"on hold",
-    tiktokpostingstatus:"on hold",
-    lastupdated:"Gilbran"
-
-
-
-
-
+    contenttext: "TEXT FILE",
+    contentposting: "file yang akan diposting",
+    postingcaption: "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+    instagrampostingstatus: "on hold",
+    tiktokpostingstatus: "on hold",
+    lastupdated: "Gilbran",
   },
   {
     id: 3,
@@ -83,17 +75,12 @@ const users = [
     postingtime: "19:00",
     contentcategory: "design",
     contenttextlink: "www.google.com",
-    contenttext:"TEXT FILE",
-    contentposting:"file yang akan diposting",
-    postingcaption:"Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-    instagrampostingstatus:"not yet posted",
-    tiktokpostingstatus:"not yet posted",
-    lastupdated:"Gilbran"
-
-
-
-
-
+    contenttext: "TEXT FILE",
+    contentposting: "file yang akan diposting",
+    postingcaption: "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+    instagrampostingstatus: "not yet posted",
+    tiktokpostingstatus: "not yet posted",
+    lastupdated: "Gilbran",
   },
   {
     id: 4,
@@ -109,17 +96,12 @@ const users = [
     postingtime: "19:00",
     contentcategory: "photo",
     contenttextlink: "www.google.com",
-    contenttext:"TEXT FILE",
-    contentposting:"file yang akan diposting",
-    postingcaption:"Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-    instagrampostingstatus:"on preview",
-    tiktokpostingstatus:"on preview",
-    lastupdated:"Gilbran"
-
-
-
-
-
+    contenttext: "TEXT FILE",
+    contentposting: "file yang akan diposting",
+    postingcaption: "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+    instagrampostingstatus: "on preview",
+    tiktokpostingstatus: "on preview",
+    lastupdated: "Gilbran",
   },
   {
     id: 5,
@@ -135,18 +117,13 @@ const users = [
     postingtime: "19:00",
     contentcategory: "education",
     contenttextlink: "www.google.com",
-    contenttext:"TEXT FILE",
-    contentposting:"file yang akan diposting",
-    postingcaption:"Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-    instagrampostingstatus:"posted",
-    tiktokpostingstatus:"posted",
-    lastupdated:"Gilbran"
-
-
-
-
-
+    contenttext: "TEXT FILE",
+    contentposting: "file yang akan diposting",
+    postingcaption: "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+    instagrampostingstatus: "posted",
+    tiktokpostingstatus: "posted",
+    lastupdated: "Gilbran",
   },
 ];
 
-export {columns, users};
+export { columns, users };
