@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 export async function POST() {
     try {
-      const { data } = await axios.delete(BACKEND_PORT + "users/logout");
+      const { data } = await axios.delete(process.env.BACKEND_PORT + "users/logout");
       let datatoken = data;
       let hasil = datatoken;    
   
