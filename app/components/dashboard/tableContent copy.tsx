@@ -18,6 +18,9 @@ import { columns, users } from "./data";
 import Link from "next/link";
 import axios from "axios";
 
+type User = (typeof users)[0];
+
+
 const statusColorMap: Record<string, ChipProps["color"]> = {
   active: "success",
   paused: "danger",
@@ -33,12 +36,27 @@ const statusColorMap: Record<string, ChipProps["color"]> = {
   "on preview": "warning",
 };
 
-
 export default function TableContent() {
   const [datas, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
- 
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const { data: response } = await axios.get(
+          "/api/workspaces/tableproject"
+        );
+        setData(await response.data.tableproject);
+      } catch (error: any) {
+        console.error(error.message);
+      }
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+  
 
   const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
     const cellValue = user[columnKey as keyof User];
@@ -173,31 +191,8 @@ export default function TableContent() {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const { data: response } = await axios.get(
-          "/api/workspaces/tableproject"
-        );
-        setData(await response.data.tableproject);
-      } catch (error: any) {
-        console.error(error.message);
-      }
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
-
-  type User = (typeof datas)[0];
-
-
-  if (isLoading) return <p>Loading...</p>;
-  if (!datas) return <p>No Project data</p>;
-
   return (
-    <>
+    <>    
       <Table aria-label="Example table with custom cells">
         <TableHeader columns={columns}>
           {(column) => (
@@ -210,15 +205,9 @@ export default function TableContent() {
             </TableColumn>
           )}
         </TableHeader>
-        {/* {datas.map((data) => {
-        //melakukan mapping dari sekian banyaknya api menjadi satu per satu
-        return (
-         <p>{data.project_id}</p>
-        );
-      })} */}
-        <TableBody items={datas}>
+        <TableBody items={users}>
           {(item) => (
-            <TableRow key={item._id}>
+            <TableRow key={item.id}>
               {(columnKey) => (
                 <TableCell>{renderCell(item, columnKey)}</TableCell>
               )}
