@@ -10,7 +10,7 @@ const AccordionTable = () => {
   return (
     <>
       <div className="justify-start">
-        <Accordion variant="shadow" selectionMode="multiple">
+        <Accordion variant="splitted" selectionMode="multiple">
           <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
             <TableContent />
           </AccordionItem>

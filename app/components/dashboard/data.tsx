@@ -11,7 +11,7 @@ const columns = [
   { name: "POSTING CAPTION", uid: "postingcaption" },
   { name: "INSTAGRAM POSTING STATUS", uid: "instagrampostingstatus" },
   { name: "TIKTOK POSTING STATUS", uid: "tiktokpostingstatus" },
-  { name: "LAST UPDATED", uid: "lastupdated" },  
+  { name: "LAST UPDATED", uid: "updated_by" },  
   { name: "ACTIONS", uid: "actions" },
 ];
 

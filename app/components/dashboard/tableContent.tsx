@@ -10,6 +10,7 @@ import {
   Chip,
   Tooltip,
   ChipProps,
+  Button,
 } from "@nextui-org/react";
 import { EditIcon } from "./EditIcon";
 import { DeleteIcon } from "./DeleteIcon";
@@ -17,6 +18,7 @@ import { EyeIcon } from "./EyeIcon";
 import { columns, users } from "./data";
 import Link from "next/link";
 import axios from "axios";
+import AddTableProject from "@/app/dashboard/addTableProject/page";
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
   active: "success",
@@ -33,15 +35,73 @@ const statusColorMap: Record<string, ChipProps["color"]> = {
   "on preview": "warning",
 };
 
-
 export default function TableContent() {
   const [datas, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  type Userss = (typeof datas)[0];
 
- 
+  const renderSubmitTable = () => {
+    return (
+      <TableRow>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+        <TableCell>mantab</TableCell>
+      </TableRow>
+    );
+  };
+  const renderTableAll = () => {
+    console.log("MASUK RENDER TABLE");
+    console.log(datas);
 
-  const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
-    const cellValue = user[columnKey as keyof User];
+    return (
+      <Table aria-label="Example table with custom cells">
+        <TableHeader columns={columns}>
+          {(column) => (
+            <TableColumn
+              key={column.uid}
+              align={column.uid === "actions" ? "center" : "start"}
+              style={{ width: "100px" }}
+            >
+              {column.name}
+            </TableColumn>
+          )}
+        </TableHeader>
+        {/* {datas.map((data) => {
+        //melakukan mapping dari sekian banyaknya api menjadi satu per satu
+        return (
+         <p>{data.project_id}</p>
+        );
+      })} */}
+        <TableBody items={datas} id="mantab">
+          {(item) => (
+            <TableRow key={item._id}>
+              {(columnKey) => (
+                <TableCell>{renderCell(item, columnKey)}</TableCell>
+              )}
+            </TableRow>
+          )}
+        </TableBody>
+        {renderSubmitTable()}
+      </Table>
+     
+    );
+
+    //redirect the user to dashboard
+    //   router.push('/');
+  };
+
+  const renderCell = React.useCallback((user: Userss, columnKey: React.Key) => {
+    const cellValue = user[columnKey as keyof Userss];
 
     switch (columnKey) {
       case "item":
@@ -138,7 +198,7 @@ export default function TableContent() {
             {cellValue}
           </Chip>
         );
-      case "lastupdated":
+      case "updated_by":
         return (
           <User
             avatarProps={{ radius: "lg", src: `/img/${user.avatar}` }}
@@ -190,42 +250,42 @@ export default function TableContent() {
     fetchData();
   }, []);
 
-  type User = (typeof datas)[0];
-
-
   if (isLoading) return <p>Loading...</p>;
   if (!datas) return <p>No Project data</p>;
 
+  const handleaddrow = () => {
+    console.log("MASUK");
+    setData({
+      _id: 1,
+      lead: "Tony Reichert",
+      avatar: "profil_gilbran.jpg",
+      email: "tony.reichert@example.com",
+      item: "Video cara masak nashville",
+      postingschedule: "7 Nov",
+      postingtime: "19:00",
+      contentcategory: "reels",
+      contenttextlink: "www.google.com",
+      contenttext: "TEXT FILE",
+      contentposting: "file yang akan diposting",
+      postingcaption:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+      instagrampostingstatus: "posted",
+      tiktokpostingstatus: "posted",
+      lastupdated: "Gilbran",
+    });
+    renderTableAll();
+
+    //redirect the user to dashboard
+    //   router.push('/');
+  };
+
   return (
     <>
-      <Table aria-label="Example table with custom cells">
-        <TableHeader columns={columns}>
-          {(column) => (
-            <TableColumn
-              key={column.uid}
-              align={column.uid === "actions" ? "center" : "start"}
-              style={{ width: "100px" }}
-            >
-              {column.name}
-            </TableColumn>
-          )}
-        </TableHeader>
-        {/* {datas.map((data) => {
-        //melakukan mapping dari sekian banyaknya api menjadi satu per satu
-        return (
-         <p>{data.project_id}</p>
-        );
-      })} */}
-        <TableBody items={datas}>
-          {(item) => (
-            <TableRow key={item._id}>
-              {(columnKey) => (
-                <TableCell>{renderCell(item, columnKey)}</TableCell>
-              )}
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+      {/* {console.log(users)} */}
+
+      {renderTableAll()}
+        
+     <AddTableProject />
     </>
   );
 }
